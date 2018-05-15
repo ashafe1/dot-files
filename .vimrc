@@ -83,15 +83,17 @@ map <Leader>r :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
-map <leader>/ :AV<cr>,.          " Open the corresponding spec file
+" Open the corresponding spec file
+map <leader>/ :AV<cr>,.
 let g:rspec_command = "!bundle exec rspec {spec}"
 
 set smartcase                   " ... unless they contain at least one capital letter
-nmap <C-E> 0D                   " clear contents of current line
+" clear contents of current line
+nmap <C-E> 0D
 " create new empty line under current line
 nmap <Enter> o<Esc>k
-
-vnoremap // y/<C-R>"<CR>        " search for visually selected text
+" search for visually selected text
+vnoremap // y/<C-R>"<CR>
 
 cabbr <expr> %% expand('%:p:h') " opens current directory when searching
 :set sessionoptions-=options
@@ -144,5 +146,5 @@ let g:tex_flavor = 'latex'
 
 " clear whitespace
 map <leader>w :%s/\s\+$//<CR>
-autocmd FileType python setlocal foldmethod=indent smartindent shiftwidth=4 ts=4 et cinwords=if,elif,else,for,while,try,except,finally,def,class
+autocmd FileType python setlocal smartindent shiftwidth=4 ts=4 et cinwords=if,elif,else,for,while,try,except,finally,def,class
 
