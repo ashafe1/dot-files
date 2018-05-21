@@ -146,5 +146,5 @@ let g:tex_flavor = 'latex'
 
 " clear whitespace
 map <leader>w :%s/\s\+$//<CR>
-autocmd FileType python setlocal smartindent shiftwidth=4 ts=4 et cinwords=if,elif,else,for,while,try,except,finally,def,class
+autocmd FileType python setlocal smartindent nofoldenable shiftwidth=4 ts=4 et cinwords=if,elif,else,for,while,try,except,finally,def,class
 
