@@ -130,15 +130,6 @@ alias beu="bundle exec unicorn -c config/unicorn.rb -E development"
 export NVM_DIR="/home/adam/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
 # Function to download and play a session video given the session_id
 session_video () {
   wget  "http://selenium-hub.otbeach.com:3000/download_video/$1.mp4"
@@ -154,5 +145,11 @@ export PATH="$PATH:$ANDROID_HOME/platform-tools"
 
 ## rvm
 PATH="$GEM_HOME/bin:$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
-[ -s ${HOME}/.rvm/scripts/rvm ] && source ${HOME}/.rvm/scripts/rvm
+## alias for my dot files git repo
 alias config='/usr/bin/git --git-dir=/home/adam/.cfg/ --work-tree=/home/adam'
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

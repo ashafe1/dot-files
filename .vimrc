@@ -42,6 +42,8 @@ Plugin 'Vimjas/vim-python-pep8-indent'
 Plugin 'yuttie/comfortable-motion.vim'
 Plugin 'python-mode/python-mode'
 Plugin 'lepture/vim-jinja'
+" C++
+Plugin 'octol/vim-cpp-enhanced-highlight'
 " Colour schemes
 Plugin 'sjl/badwolf'
 Plugin 'cocopon/iceberg.vim'
