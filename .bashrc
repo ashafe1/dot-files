@@ -101,8 +101,6 @@ fi
 export PATH="$HOME/.linuxbrew/bin:$PATH"
 export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
 export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
 
 # added by Anaconda3 4.4.0 installer
 export PATH="/home/adam/anaconda3/bin:$PATH"
@@ -125,7 +123,6 @@ alias branches="git for-each-ref --count=10 --sort=-committerdate refs/heads/ --
 alias befs="bundle exec foreman start"
 alias bep="bundle exec puma -e development -C config/puma.rb"
 alias beu="bundle exec unicorn -c config/unicorn.rb -E development"
-# Load RVM into a shell session *as a function*
 
 export NVM_DIR="/home/adam/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -143,13 +140,16 @@ export PATH="$PATH:$ANDROID_HOME/build-tools"
 export PATH="$PATH:$ANDROID_HOME/tools" 
 export PATH="$PATH:$ANDROID_HOME/platform-tools"                                  
 
-## rvm
-PATH="$GEM_HOME/bin:$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 ## alias for my dot files git repo
 alias config='/usr/bin/git --git-dir=/home/adam/.cfg/ --work-tree=/home/adam'
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
+
+function chruby_reload() {
+  RUBIES=(~/.rubies/*)
+}
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="$PATH:$HOME/.rubies/bin"

@@ -12,6 +12,8 @@ augroup END " }
 
 call vundle#begin()
 
+" RUST
+Plugin 'rust-lang/rust.vim'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-endwise'
@@ -125,10 +127,9 @@ noremap <S-Left> <C-w><
 noremap <S-Up> <C-W>+
 noremap <S-Down> <C-W>-
 noremap <S-Right> <C-w>>
-" close a window
 noremap <S-h> <C-w><
-noremap <S-k> <C-W>-
-noremap <S-j> <C-W>+
+noremap <S-k> <C-w>+
+noremap <S-j> <C-w>-
 noremap <S-l> <C-w>>
 command! -nargs=1 -complete=file WE write | edit <args>
 " for ctags and ctrl p
@@ -148,5 +149,7 @@ let g:tex_flavor = 'latex'
 
 " clear whitespace
 map <leader>w :%s/\s\+$//<CR>
-autocmd FileType python setlocal smartindent nofoldenable shiftwidth=4 ts=4 et cinwords=if,elif,else,for,while,try,except,finally,def,class
-
+" text width for commit messages
+au FileType gitcommit set tw=72
+" open new split to the right
+set splitright
