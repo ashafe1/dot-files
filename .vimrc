@@ -12,8 +12,6 @@ augroup END " }
 
 call vundle#begin()
 
-" RUST
-Plugin 'rust-lang/rust.vim'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-endwise'
@@ -39,11 +37,14 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-airline/vim-airline'
 Plugin 'majutsushi/tagbar'
 Plugin 'vim-latex/vim-latex'
-" Python plugins
+" Python
 Plugin 'Vimjas/vim-python-pep8-indent'
 Plugin 'yuttie/comfortable-motion.vim'
 Plugin 'python-mode/python-mode'
 Plugin 'lepture/vim-jinja'
+" Rust
+Plugin 'rust-lang/rust.vim'
+Plugin 'racer-rust/vim-racer'
 " C++
 Plugin 'octol/vim-cpp-enhanced-highlight'
 " Colour schemes
@@ -153,3 +154,5 @@ map <leader>w :%s/\s\+$//<CR>
 au FileType gitcommit set tw=72
 " open new split to the right
 set splitright
+" turn off highlight after search
+set nohlsearch
