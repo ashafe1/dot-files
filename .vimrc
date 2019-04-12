@@ -51,6 +51,9 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'sjl/badwolf'
 Plugin 'cocopon/iceberg.vim'
 Plugin 'chriskempson/base16-vim'
+" HTML
+Plugin 'alvan/vim-closetag'
+Plugin 'pangloss/vim-javascript'
 
 set t_Co=256   " terminal is in 256color mode
 

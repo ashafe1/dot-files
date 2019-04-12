@@ -1,15 +1,18 @@
+source ~/.git-completion.bash
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 # Git branch in prompt.
 force_color_prompt=yes  # Bash
 export EDITOR=vim
-#if [ "$force_color_prompt" = yes ]; then
-##PS1="\[$RED\]-\[$BLUE\]\u\[$YELLOW\]\[$YELLOW\]\w\[\033[m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\]\$ "
-#PS1='${debian_chroot:+($debian_chroot)}\[\033[00;32m\][\t] \[\033[01;33m\]\u:\w\$\[\033[01;37m\] '  
-#else
-    #PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-#fi
+parse_git_branch() {
+ git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+if [ "$color_prompt" = yes ]; then
+ PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u:\[\033[01;34m\]\w\[\033[01;31m\] $(parse_git_branch)\[\033[00m\]\$ '
+else
+ PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w$(parse_git_branch)\$ '
+fi
 #unset color_prompt force_color_prompt
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -109,20 +112,23 @@ export PATH="/home/adam/anaconda3/bin:$PATH"
 . ~/z-master/z.sh
 
 # Aliases
+
 alias runint='RUN_INTEGRATIONS=akjsdn'
 alias be='bundle exec'
 alias berc='bundle exec rails c'
+alias gb='git branch'
+alias gco='git checkout'
 alias gs='git status'
 alias gd='git diff'
 alias gl='git log'
 alias glp='git log --oneline --all --graph --decorate'
-alias gco='git checkout'
-alias weather='curl wttr.in/stockport'
+alias weather='curl wttr.in/manchester'
 alias catchup='git fetch --all && git rebase upstream/master'
 alias branches="git for-each-ref --count=10 --sort=-committerdate refs/heads/ --format='%(committerdate:short) %(authorname) %(refname:short)'"
 alias befs="bundle exec foreman start"
 alias bep="bundle exec puma -e development -C config/puma.rb"
 alias beu="bundle exec unicorn -c config/unicorn.rb -E development"
+alias helios-import="bundle exec rails searches:subscribe DATA_STORE=MYSQL"
 
 export NVM_DIR="/home/adam/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -150,6 +156,3 @@ source /usr/local/share/chruby/auto.sh
 function chruby_reload() {
   RUBIES=(~/.rubies/*)
 }
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rubies/bin"
